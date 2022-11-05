@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Song } from '../song.interface';
+import { FirestoreService } from '../service/firestore.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +11,13 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  songList: any = [];
+  constructor(
+    private firestoreService: FirestoreService, private router: Router
+  ) { }
+
+  ngOnInit() {
+    this.songList = this.firestoreService.getSongList().valueChanges();
+  }
 
 }
