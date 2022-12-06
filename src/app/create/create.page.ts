@@ -10,31 +10,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./create.page.scss'],
 })
 export class CreatePage implements OnInit {
-  public createSongForm: any;
+  public createConcertForm: any;
 
   constructor(
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
     public firestoreService: FirestoreService,
     formBuilder: FormBuilder, public router: Router) {
-    this.createSongForm = formBuilder.group({
-      albumName: ['', Validators.required],
-      artistName: ['', Validators.required],
-      songDescription: ['', Validators.required],
-      songName: ['', Validators.required],
 
+    this.createConcertForm = formBuilder.group({
+      concertName: ['', Validators.required],
+      costInput: ['', Validators.required],
+      costConcert: ['', Validators.required],
+      date: ['', Validators.required]
     });
   }
 
   ngOnInit() { }
 
-  async createSong() {
+  async createConcert() {
     const loading = await this.loadingCtrl.create();
-    const albumName = this.createSongForm.value.albumName;
-    const artistName = this.createSongForm.value.artistName;
-    const songDescription = this.createSongForm.value.songDescription;
-    const songName = this.createSongForm.value.songName;
-    this.firestoreService.createSong(albumName, artistName, songDescription, songName).then(
+    const concertName = this.createConcertForm.value.concertName;
+    const costInput = this.createConcertForm.value.costInput;
+    const costConcert = this.createConcertForm.value.costConcert;
+    const date = this.createConcertForm.value.date;
+    this.firestoreService.createConcert(concertName, costInput, costConcert, date).then(
       () => {
         loading.dismiss().then(() => {
           this.router.navigateByUrl('');
@@ -43,6 +43,7 @@ export class CreatePage implements OnInit {
       error => {
         console.error(error);
       });
+
     return await loading.present();
 
   }

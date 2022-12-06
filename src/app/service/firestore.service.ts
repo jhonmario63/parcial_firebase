@@ -1,37 +1,34 @@
 import { Injectable } from '@angular/core';
-import {AngularFirestore,AngularFirestoreCollection,AngularFirestoreDocument} from '@angular/fire/compat/firestore';
-import { Song } from '../song.interface';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { Concert } from '../song.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirestoreService {
-
-  constructor(public firestore: AngularFirestore) { 
-
+  constructor(public firestore: AngularFirestore) {
   }
 
-  createSong(albumName: string,
-    artistName: string,
-    songDescription: string,
-    songName: string): Promise<void> {
+  createConcert(concertName: string,
+    costInput: Number,
+    costConcert: Number,
+    date: Date): Promise<void> {
     const id = this.firestore.createId();
-    return this.firestore.doc(`songList/${id}`).set({
-      id, albumName, artistName, songDescription, songName,
-
+    return this.firestore.doc(`concertList/${id}`).set({
+      id, concertName, costInput, costConcert, date
     });
   }
 
-  getSongList(): AngularFirestoreCollection<Song> {
-    return this.firestore.collection(`songList`);
+  getConcertList(): AngularFirestoreCollection<Concert> {
+    return this.firestore.collection(`concertList`);
   }
 
-  getSongDetails(songId: string): AngularFirestoreDocument<Song> {
-    return this.firestore.collection(`songList`).doc(songId);
+  getConcertDetails(concertId: string): AngularFirestoreDocument<Concert> {
+    return this.firestore.collection(`concertList`).doc(concertId);
   }
 
-  deleteSong(songId: string): Promise<void> {
-    return this.firestore.doc(`songList/${songId}`).delete();
+  deleteConcert(concertId: string): Promise<void> {
+    return this.firestore.doc(`concertList/${concertId}`).delete();
   }
 
 }

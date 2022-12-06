@@ -1,9 +1,8 @@
-
 export const firebaseConfig = {
-  apiKey: "AIzaSyCd6IhSRC9sldNcjHo_LXil8_TK5PgwJf8",
-  authDomain: "guiafire-16f12.firebaseapp.com",
-  projectId: "guiafire-16f12",
-  storageBucket: "guiafire-16f12.appspot.com",
-  messagingSenderId: "71542914511",
-  appId: "1:71542914511:web:abb04b13657e770f2de6ba"
+  apiKey: "AIzaSyDOi0CuyhXdZjO0yfqkAZTKCJi4hbuTN54",
+  authDomain: "parcialconcierto.firebaseapp.com",
+  projectId: "parcialconcierto",
+  storageBucket: "parcialconcierto.appspot.com",
+  messagingSenderId: "946832845439",
+  appId: "1:946832845439:web:978a79889005622d282d4a"
 };

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Song } from '../song.interface';
+import { Concert } from '../song.interface';
 import { FirestoreService } from '../service/firestore.service';
 import { Observable } from 'rxjs';
 import { AlertController } from '@ionic/angular';
@@ -12,7 +12,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class DetailPage implements OnInit {
 
-  song: any = {}; songId: any;
+  concert: any = {}; concertId: any;
   constructor(
     private firestoreService: FirestoreService,
     private route: ActivatedRoute,
@@ -21,11 +21,11 @@ export class DetailPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.songId = this.route.snapshot.paramMap.get('id');
-    this.song = this.firestoreService.getSongDetails(this.songId).valueChanges();
+    this.concertId = this.route.snapshot.paramMap.get('id');
+    this.concert = this.firestoreService.getConcertDetails(this.concertId).valueChanges();
   }
 
-  async deleteSong() {
+  async deleteConcert() {
     const alert = await this.alerController.create({
       message: 'Are you sure you want to delete the song?', buttons: [
         {
@@ -36,9 +36,9 @@ export class DetailPage implements OnInit {
           }
         },
         {
-          text: 'Okay', 
+          text: 'Okay',
           handler: () => {
-            this.firestoreService.deleteSong(this.songId).then(() => {
+            this.firestoreService.deleteConcert(this.concertId).then(() => {
               this.router.navigateByUrl('');
             });
           },

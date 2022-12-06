@@ -1,7 +1,7 @@
-export interface Song {
+export interface Concert {
     id: string;
-    albumName: string;
-    artistName: string;
-    songDescription: string;
-    sonName: string;
+    concertName: string;
+    costInput: string;
+    costConcert: string;
+    date: string;
 }
