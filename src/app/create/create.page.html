@@ -8,19 +8,19 @@
   <form [formGroup]="createConcertForm" (submit)="createConcert()">
     <ion-item>
       <ion-label stacked>Concert Name</ion-label>
-      <ion-input formControlName="concertName" type="text" placeholder="what's this song called?"></ion-input>
+      <ion-input formControlName="concertName" type="text" placeholder="Concert Name"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label stacked>Cost Input</ion-label>
-      <ion-input formControlName="costInput" type="text" placeholder="who sing this song?"></ion-input>
+      <ion-input formControlName="costInput" type="text" placeholder="Cost Input"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label stacked>Cost Concert</ion-label>
-      <ion-input formControlName="costConcert" type="text" placeholder="what's the album's name?"></ion-input>
+      <ion-input formControlName="costConcert" type="text" placeholder="Cost Concert"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label stacked>Date</ion-label>
-      <ion-input formControlName="date" type="text" placeholder="what's the song name?"></ion-input>
+      <ion-input formControlName="date" type="text" placeholder="Date"></ion-input>
     </ion-item>
     <ion-button expand="block" type="submit" [disable]="!createConcertForm.valid">Add Concert</ion-button>
   </form>

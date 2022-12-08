@@ -12,12 +12,18 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let song of songList | async" routerLink="/detail/{{song.id}}">
+  <ion-card *ngFor="let concert of concertList | async" routerLink="/detail/{{concert.id}}">
     <ion-card-header>
-      {{ song.songName }}
+      {{ concert.concertName }}
     </ion-card-header>>
     <ion-card-content>
-      Artist Name: {{ song.artistName }}
+      Cost Input: {{ concert.costInput }}
+    </ion-card-content>>
+    <ion-card-content>
+      Cost Concert: {{ concert.costConcert }}
+    </ion-card-content>>
+    <ion-card-content>
+      Date Concert: {{ concert.date }}
     </ion-card-content>>
   </ion-card>
 </ion-content>

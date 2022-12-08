@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Song } from '../song.interface';
+import { Concert } from '../song.interface';
 import { FirestoreService } from '../service/firestore.service';
 import { Router } from '@angular/router';
 
@@ -11,13 +11,13 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
-  songList: any = [];
+  concertList: any = [];
   constructor(
     private firestoreService: FirestoreService, private router: Router
   ) { }
 
   ngOnInit() {
-    this.songList = this.firestoreService.getSongList().valueChanges();
+    this.concertList = this.firestoreService.getConcertList().valueChanges();
   }
 
 }

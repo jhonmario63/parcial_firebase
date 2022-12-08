@@ -3,22 +3,22 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ (concert | async)?.songName }}</ion-title>
+    <ion-title>{{ (concert | async)?.concertName }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Artist</h3>
+  <h3>Cost Concert</h3>
   <p>
-    Then song {{ (concert | async)?.songName }} was released by {{ (song | async)?.artisName }}.
+    Then cost of the concert: {{ (concert | async)?.concertName }} it is: ${{ (concert | async)?.costConcert }}.
   </p>
-  <h3>Album</h3>
+  <h3>Cost Input Concert</h3>
   <p>
-    It was part of the {{ (concert | async)?.albumName }} album.
+    The cost input it is:  ${{ (concert | async)?.costInput }}.
   </p>
-  <h3>Description</h3>
+  <h3>Date</h3>
   <p>
-    {{ (concert | async)?.songDescription }}
+    {{ (concert | async)?.date }}
   </p>
-  <ion-button expand="block" (click)="deleteSong()"> DELETE SONG</ion-button>
+  <ion-button expand="block" (click)="deleteConcert()"> Delete Concert</ion-button>
 </ion-content>
